@@ -1,3 +1,254 @@
 # Demo
 
 Writing something random !
+
+
+# Subheader 
+
+Just working on the Youtube turotila to understand Git 
+
+
+
+GIT STATUS- the git status command shows you all of the files that were updated or deleted or created but have not been saved in a commit yet.
+
+GIT ADD .- so you might see that there are some untracked files when you run the git status command, and that is because thye have not been committed yet or the changes have not been saved yet there fore that is what Git Add is for.  
+SO what GIT ADD really does is it gets ready those files for them to be committed.
+
+
+git add filename- you can also add by name rather than by dot (which adds all of the files that were uncommitted or not ready to be committed.)
+
+git commit-we commit or save the changes made to the files we were playing with
+
+git push- so although the changes were made the chnages and most uodated verison of the files are not live on Github and we make it live by using the push command which means I want to push klive to a remote reposiotry where my project is hosted. 
+
+
+
+SSH Key- we generated a key 
+testkey.pub is the key that you are going to upload in your github interface
+pub stands for public 
+testkey on private key 
+
+
+origin- just stands for the location of the Git repository
+
+
+
+git clone- cloning a repository creates an exact copy of all files and chnages in a git repository at the time of the clone. 
+cloning a remote creates a local verison of that repository on your machine.  
+Giving you the opportunity to experiment on the project withotu affecting the original code base
+Cloning alos establishes a connection between the local repository on your mahcine and the remote repository on Github 
+this allows push and pull actions 
+with the remote project 
+
+
+Aliases
+Are custom shortcuts that define which command will expand ot longer or combined commands. 
+ALiases save you the time and energy cost of typing frequently used commands. 
+Git provides its own alias system.
+A common use for Git aliases is shortening the commit command. 
+
+so if you move to a different repository then the laias will go back to its original status aka st goes abck to status 
+
+REMEBER THAT COMMMITTING IS THE EQUIVALENT TO SAVING 
+Git committing is an operation that acts upon a collection of files and directories 
+Git commits can be captruebd and buil up locally, then pushed to a remote serve on Github as needed using the git push -u origin 
+
+
+GIT ADD
+it adds changes and command in the working directory to staging area. 
+It tells Git that you want to include updates to a particular file. 
+Changes are not actually recorded until you run gitcommit. 
+gitreset command is used to undo a commit or staged snapshot. 
+In addition to git add and git commit, a third command gitpush is essential for a complete collaborative Git workflow. 
+
+THE STAGING AREA
+The primary function of the git add command, is to promote pending changes in the working directory, to the git staging area.
+The staging area is one of Git's more unique features, 
+
+
+
+GIT DIFF 
+Diffing is a function that takes two inputs of data sets and outputs the chnages between them.
+git diff is a multi-use Git command that when executed runs a diff function on Git data sources. 
+These data sources can be commits branches, files and more. 
+$:> echo "this is a diff example" > diff_test.txt :
+executing this command will chnage the content of the difff_test. txt file  
+
+
+GIT STASH(STASHING)
+The git stash command takes your uncommitted chnages 
+saves them away fro later use and then reverts them from your working copy 
+You can reapply previously stashed chnages with git stash pop
+Git stash will not stash files that have been ignroed 
+Git stash will not stash new files in your working copy that have not yet been staged.
+You are not limited to a single stash 
+You can run stash several times to create multiple stashes 
+By default stashes are dienitfied as a wokr in progress 
+You can view a summary of a stash with git stash show
+
+Creating a  branch form yout stash 
+If the chnages on your branch diverge from the chnages in your stash;
+you may run into conflicts when popping or applying your stash. 
+Instead you can use git stash branch to create a new branch to apply stashed chnages to
+
+
+
+.gitignore
+Git sees every file in your wokring copy as one of three things:
+tracked - a file which has been previously staged or committed 
+untracked - a file which has not been staged or committed
+ignored - a file which Git has been explicitly told to ignore. 
+
+Ignored files are usually build artifacts and manchin generated files that can be derived from your repository source or should otherwise not be committed,
+
+
+git ingonre command tells git to pretty much ignore the file 
+or better pretend like it never existed 
+You might want to ignroe files for example a file that is not necessary that is not needed to run your application 
+
+
+Ignoring a previously committed file. 
+If you want to ignore a file that you have commited 
+in the past, you'll need to delete the file form your rpeository and then add a .gitignore rule for it. 
+Using the --cached option with git rm means that the file will be deleted from your repository  
+
+
+
+INSPECTING A REPOSITORY 
+git status-
+The git status command displays the state of the wokring direcotry and the staging area 
+
+
+Usage 
+git status to list whihc files are tracked or untracked 
+Git status command i srealtively straightforward command. 
+It ismply shows you what's been going on with git add and git commit. 
+
+It is good to check the state of your repository before committing changes so that you do not accidentally commit something you do not mean to. 
+
+
+git Log
+The git Log command displays committed snapshots. It lets you list the project history, filter it, and search for specific chnages. 
+
+WHile git status lets you inspect the working directory and the staging area. git log only operates on the committed history. 
+
+Log output can be customized in several ways, from simply filtering commits to displaying them ina completely user-defined format. 
+
+git add *.html will add only the files which have a .html extension
+
+.gitignore- we can tell git which files ot exclude by creating a .gitignore file which we will use to specify files and file patterns for git to ignore. 
+
+ Branching
+ Vraninching is something almost all control systems have. It allows you to work on a cpoy of the code in the main line wihtout affecting hte main line directly. 
+ You would create a new branch if you're working on a bugfix or new feature. 
+ When you are done you would merge all of your chnages abck into the main line.  
+to switch to master branch we do this git checkout master
+maste ris always the master branch 
+SO if you make chnaes ina ne wbranch those changes will nto appear on the master branche so what you want to do is merge them so it appears on the master branch 
+
+
+
+STASH 
+lets say you've been working on a branch and you are not ready to commit them yet but you need to swithc to another branch to do a quick bugfix or work on osmething else
+so what the stash command does is take that dirty state of your branch including tracked modifications and staged chnages and saves it on a stack of unfinished changes that can be reapplied at any time. 
+when you re ready to come back and continue working on this branch you can reapply your chnages from the stash using git stash apply.
+Now you are ready to continue on. 
+
+
+Even though you are interacting with the rmeote repository eveyrhting is still happening locally you have to manually retrieve and push chnages to the remote repository. 
+We can see a list of existing remote repositories we have using git remote 
+
+CLONING A REPOSITORY 
+It pulls down the entire rpeository including the entire commit history and as such, git pouts everything in its own folder 
+
+At some point we need to keep it up-to-date and there are two ways of doing that by fetching and by pulling. 
+Git fetch origin- will go out to the server and get any chnages made since you last cloned or fetched, fetching will pull the data into your local repository but will not merge it into your work you will need to merge manually.
+Git pull origin-will automatically fetch and merge the changes from the remote branch into your current branch 
+
+
+
+Tagging and Git Tag
+Tagging is generally used to capture a point in history that is used for a marked version release.
+In other words when you want to create a release point for a stable version of your code. 
+Or when you want to create a historic point for your code/data that you can refer at any future
+A tag is like a branch that does not chnage. 
+To create a new tag execute the following comman:
+git tag tagname
+Two types of tags
+Annotated tags and ligthweight tags. 
+Annotated tags are stored as full objects in the Git database. 
+To reiterate, they store extra meta data such as: the tagger name, email, and date. 
+Annotated tags are viewved as better than annotated tags so you can have all fo the associated meta-data.
+They are sotred as a completete git object 
+to create one- git tag -a v1.1 -m "some description"
+
+lightwieight tags- git tag v1.4-lw 
+
+Git Blame
+The git blame command is a versatile torubleshooting utility that has extensive usage options. 
+This is used to examine specific points of afile's history and get ocntext as to who the last author was that mdofifed the line. 
+It is used to explore the history of specific code and answer questions about what, how, and why the code was added to a repository. 
+The state of the example repository can be explored using the git log. 
+git blamse only operates on individula files. 
+It is a common open source software practice to include a README file in the root of a git repository as documentation source for the project. 
+git blame -e shows the authors email address instead of the username. 
+
+
+Git Blame vs Git Log
+While git blame dipslays the last author that mdoified a line, often times you will want to knw when a line was originally added. 
+This can be cumbersome to achieve using a git blame. It rquires a comibination of the -w, -C, and -M options 
+It can be far more conveneniete to use the gitlog command. 
+Git blame igves you the details of a file like the author who updated that file o=and every single line in that file. 
+
+
+Undoing Commits & Changes 
+git log- one of the best utitlities for revieiwing the history of a Git repository. 
+
+When you have found a commit reference to the point in history you want to visit, you can utilize the git checkout command to visit that commit. 
+Git checkout is an easy way to load any of these saved snapshots onto your development machine.
+The head usually points to main ro some other local branch, but when you check out a orevious commit, HEAD no longer points to a branch- it points directly to a commit. 
+This is called a detached Head state.
+
+git checkout -b newbranchname will create a new brance named newbranchname and switch to that state. 
+
+
+
+
+Git reset 
+gitreset is an extensive command with multiple uses and functions. 
+If we invoke git reset --hard the commit history is reset tot he specified commit
+
+Udoing the last commit
+These strategies are all applicable to the most recent commits. The strategies are all applicable to the most recent commit as well. 
+In some cases though, you might not need to remove or reset the last commit. 
+
+git commit --amend, this will have git open the configured systme edito and let you mdoify the last commit message. 
+
+
+
+GIT CLEAN 
+we will focus on a detailed discussion of the git clean command. 
+Git clean is to some extent an 'undo' command.
+Git clean command operates on untracked files. 
+
+
+git clean -xf- so the -x option tells git to also include any ignored files. The -x options iwll act on all ignored files, not just project build specific ones. 
+This could be unintended things like ./. IDE configuration files. 
+
+The git REVERT command 
+The git revert command can be considered an undo type command. It is not a traditional undo operation though. Instead of removing the commit from the project hsitory, it figures out how to invert the chnages introduced by the commit with the resulting inverse content.
+This prevents Git from losing history which is important for the integrity 
+It hsould be used when you want to apply the inverse of a commit from your porject history. 
+
+
+
+
+
+
+
+
+
+
+
+
+
