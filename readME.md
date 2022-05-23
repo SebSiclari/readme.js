@@ -240,15 +240,152 @@ The git revert command can be considered an undo type command. It is not a tradi
 This prevents Git from losing history which is important for the integrity 
 It hsould be used when you want to apply the inverse of a commit from your porject history. 
 
+The git commit --amend- is a convenient way to modify the most recent commit.
+It lets you combine staged changes witht he previous commit instead of cretign an entriely new commit. 
+
+It can also be used to simplue edit the previous message without changing snapshot. But, amending does not just alter the most recent commit, it replaces it entirely, meaning the amended commit will be a new entity with its own ref. 
+
+Git rebase 
+you can use git rebase to combine a sequence of committs into a new base commit.
+In standard mode git rebase allows you to literally rewrite history automatically appying commits in your current working branch to the passed branch ehad
 
 
 
 
 
+Git RM-
+
+The git rm command is used to remove files from a Git repository.
+It can be thought of as the inverse of git add command. 
+It can be used to remove individula files or a collection of files. 
+
+--dry-run will not actually rmeove files but rather output what files it owld have removed. 
+
+
+
+
+Git Reflog-
+reflogs track when Git refs were updated in the local repository. 
+Reflogs are stored in directories under the local repository.
+Time qualifiers can be combined. 
+Additional PLural forms are accepted  
 
 
 
 
 
+COLLABORATING 
+GIT rmeote command- is one peice of the borader system which is reposnible for syncing changes. 
+Records registered through the git remomte command are used in cnjunction
+with the git fetch, git push, and igt pull commands.
+Remote connections are more like bookmarks rather than direct links into other repositories.
+Instead of providing real-time access to another repository, thye serve as convenient names that be used to reference a not-so-conveneient URL.
+
+The following commands are used to view the current state of the rmeote list. 
+
+git remote- lists the remote connections you have to other repositories. 
+
+git remote -v- same as the above ocmmand, but includ the URL of each connection. 
+
+git remote add- creates a new connection to a remote repository. After adding a remote you will be aleo to use <name> as a convenitner shortcut for <url>
+
+Git Remote Discussion
+Git is designed to give each developer an entirely isolated development environment. This means that information is not automatically passed back and forth between repositories. Instead, developers need to manually pull upstream commits into their local repository or manually push their local commits back up to the central repository. 
+
+The Origin Remote 
+when you clone a repository with git clone, it automatically creates a remote connection called origin pointing back to the cloned repository. 
+This is useful for developers creating a local copy of a central repository, since it provides an easy way to pull upstream changes or publish local commits. 
 
 
+ Repository URLS 
+ Git supports mnay ways to reference a remote repository. Two of the easiset ways to access a remote repo are via the HTTP and the SSH protocols. 
+ HTTP is an easy way to allow anonymous read-only access to a repository. 
+ Generally thoguh it is not possible to push commits to an HTTP address.
+ For read-write access, you should use SSH instead:
+
+Git Remote Examples:
+In addition to origin, it is often conveneient to have a connection to your teammate's repositories. For example, if your co-worker, John, maintained a publicly accessible repository on dev.example.com/john.git you could add a connection as follows:
+git remote add john http://dev.example.com/john.git 
+Having this kind of access to invidividual developer's repositories makes it possible ot collaborate outside of the central repository 
+
+Origin I believe referes to the remote orginig in this case Github
+We use cloen to import the rmeote repository locally 
+
+
+Adding Remote Repositories
+The git remote add command will create a new connection record to a rmeote repository. 
+After adding a remote, you'll be able to use as convenenint shortcut for in other Git commands.
+
+Inspecting a Remote. 
+The show subcommand can be appeneded to git remote to give detailed output on the configuration remote. 
+git remote show 
+
+GIT FETCH AND GIT PULL
+Both gitfetch and gitpull can be used to read from a rmeote repository. Both commands have different operations that are explained in further depth on ther respective links. 
+
+Git push- the git push command is used to write to a rmeote repository. 
+git push remote-name branch-name
+This example will upload the local state of branch-name to the remote reposiotry specifided by remote name. 
+
+git remote rename <old-name> <new-name>
+The command git remote rename is self-explanatory. 
+When executed 
+git remote rm name -will remove that file  
+
+
+
+GIT FETCH 
+
+the git fetch command simply updates or pulls the updates from our remote tracking branches.
+Basically we are getting the updates that have been pushed to our remote  branches to our local machine. 
+So it pulls down the updates that have been pushed 
+In review, git fetch is a primary command used to dowload contents from a remote repository. Git fetch is used in conjuction with git remote, git branch. git chekcout, and git reset to update a local repository to the state of a remote. 
+Thi git fetch command is a critical piece of collaborative git work flows. 
+
+
+Branches are a variation of our repositories main code so remote tracking branches are branches that have been set up to push and pull from the remote repositoris like github
+Zremote branches are just like local braches, except they map to commits from somebody else's repository. 
+
+
+
+Git Pull- 
+the git pull command basically runs two commands in one, inittially it runs a git fetch and then a git merge 
+git pull will download the chnages made to oyur current branch 
+updating the code within your repository the merge command is where the actual udpates to the files come in. 
+
+
+The following example walks through the typical workflow for synchronizing your local repository witht he central repository's main branch. 
+
+
+To see what commits have been added to the upstream main, you can run a git log using origin/main as a filter:
+git log --oneline main..origin/main 
+
+
+
+
+Git push
+git push command is used to upload a local repository cotnent to a remote repository.
+Pushing is how you transfer commits from your local repository to a remote repo. 
+It's the conterpart to git fetch, but whereas fetching imports commits to local branches, pushing exports commits to remote branches. Remote branches are configured using the git remote command. 
+
+git push <remote repository> <local branch>
+git push is most commonly used to publish an upload local chnages to a central repository. After a local repository has been modified a push is executed to share the mdoficiations with remote team members.
+
+
+The syncing commands, operate on remote c=branches which are configured using the git remote command. 
+git push can be considered and upload command whereas, git fetch and git pull can be thought of as dowload commands. 
+
+Once chnagesets have been movded via  download or upload a git merge may be performed at the destination to integrate the changes. 
+
+
+
+
+
+bare repository- is the same as default, but no commits can be made in a bare repository. 
+The changes made in projects cannot be tracked by a bare repository as it doesn't have a working tree. 
+
+Force Pushing 
+Git prevents you from overwriting the central repository's history by refusing push requests when they result in a non-fast-forward merge. 
+So, if the remote history has diverged from your history, you need to pull the remote branche and mege it inti your local one, then try pushing again. 
+
+The --force flag overrides this behavior and makes the rmeote repository's branch match your local one, deleting any upstream changes that may have occured since you last pulled. 
